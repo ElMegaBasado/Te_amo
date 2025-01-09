@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: white;
+        }
+        h1 {
+            font-size: 32px;
+            color: darkred;
+            margin-top: 50px;
+        }
+        #mensaje {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkred;
+            margin-top: 20px;
+        }
+        canvas {
+            margin-top: 30px;
+            border: 2px solid darkred;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div id="mensaje"></div>
+
+    <canvas id="corazonCanvas" width="400" height="400"></canvas>
+
+    <script>
+        function dibujarCorazon() {
+            var canvas = document.getElementById("corazonCanvas");
+            var ctx = canvas.getContext("2d");
+
+            // Limpiar el canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar el corazón
+            ctx.beginPath();
+            ctx.moveTo(200, 150);
+
+            ctx.bezierCurveTo(200, 70, 100, 70, 100, 150);  // Parte izquierda del corazón
+            ctx.bezierCurveTo(100, 220, 200, 230, 200, 290);  // Parte inferior del corazón
+            ctx.bezierCurveTo(200, 230, 300, 220, 300, 150);  // Parte derecha del corazón
+            ctx.bezierCurveTo(300, 70, 200, 70, 200, 150);  // Parte superior derecha
+
+            ctx.closePath();
+            ctx.fillStyle = "darkred";  // Color rojo oscuro
+            ctx.fill();
+        }
+
+        // Mostrar el mensaje directamente
+        document.getElementById("mensaje").textContent = "¡Feliz cumpleaños, mi amor! 🎂";
+
+        // Llamar a la función para dibujar el corazón cuando se carga la página
+        dibujarCorazon();
+    </script>
+
+</body>
+</html>
